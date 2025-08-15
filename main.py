@@ -1,6 +1,10 @@
 import telebot
+import os
+from dotenv import load_dotenv
+
+load_dotenv()  # Загружает .env файл
 # Создаем экземпляр бота
-bot = telebot.TeleBot('Telegram TOKEN')
+bot = telebot.TeleBot(os.getenv('BOT_TOKEN'))
 # Функция, обрабатывающая команду /start
 @bot.message_handler(commands=["start"])
 def start(m, res=False):
